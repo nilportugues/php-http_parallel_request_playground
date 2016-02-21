@@ -1,4 +1,4 @@
-# HTTP Request Coroutines
+# PHP HTTP Request Coroutines
 
 Playground to test how to make the fastest parallel HTTP requests with the existing PHP technologies.
 
