@@ -9,7 +9,7 @@ This repository assumes that you're developing using modern tools such as `compo
 
 Just copy & paste this in your terminal. 
 
-```
+```sh
 composer install && sh docker.sh start
 ```
 
@@ -28,7 +28,8 @@ You may modify the delay time by modifying the `index.php` file found in `public
 Its contents just simulate a slow loading website:
 
 ```php
-<?php 
+<?php
+
 $delay = 5;
 sleep($delay);
 echo 'You waited for '.$delay.' seconds.'; 
@@ -44,7 +45,7 @@ docker run -v $PWD/public/:/var/www/ php_coroutines .
 
 Now on **ANOTHER** terminal window, you may run: 
 
-```
+```sh
 php withCoroutines.php
 php withoutCoroutines.php
 ```
