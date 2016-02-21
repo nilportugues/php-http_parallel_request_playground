@@ -1,0 +1,17 @@
+{
+    "name": "nilportugues/php-coroutines",
+    "description": "Just a sample code",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nil Portugués Calderó",
+            "email": "nilopc@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+      "guzzlehttp/guzzle": "~6.0",
+        "react/event-loop": "^0.4.1"
+    }
+}

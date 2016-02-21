@@ -1,0 +1,12 @@
+coroutines_nginx:
+  container_name: coroutines_nginx
+  hostname: coroutines_nginx
+  build: ./Docker
+  ports:
+    - 8000:8000
+  volumes:
+    - ./public:/var/www
+    - ./Docker/helpers/directive-only:/etc/nginx/helpers/directive-only
+    - ./Docker/helpers/location:/etc/nginx/helpers/location
+    - ./Docker/helpers/basic.conf:/etc/nginx/helpers/basic.conf
+    - ./Docker/sites-enabled:/etc/nginx/sites-enabled
