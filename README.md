@@ -40,7 +40,7 @@ echo 'You waited for '.$delay.' seconds.';
 On a terminal window run: 
 
 ```
-docker run -v $PWD/public/:/var/www/ php_coroutines .
+sh docker.sh start
 ```
 
 Now on **ANOTHER** terminal window, you may run: 
