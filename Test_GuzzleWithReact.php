@@ -76,4 +76,4 @@ $timeEnd = microtime(true);
 $executionTime = ($timeEnd - $timeStart);
 
 echo 'You really waited for: ' . $executionTime . ' seconds' . PHP_EOL;
-echo 'This is approximately '.(100 - ($executionTime/25)*100).'% faster than normal curl.'. PHP_EOL;
+echo 'This is approximately '.(($executionTime/25)*100).'% faster than normal curl.'. PHP_EOL;

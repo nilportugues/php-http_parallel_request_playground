@@ -37,4 +37,4 @@ $timeEnd = microtime(true);
 $executionTime = ($timeEnd - $timeStart);
 
 echo 'You really waited for: ' . $executionTime . ' seconds' . PHP_EOL;
-echo 'This is approximately '.abs(100 - ($executionTime/25)*100).'% slower than theoretical time.'. PHP_EOL;
+echo 'This is approximately '.abs(($executionTime/25)*100).'% slower than theoretical time.'. PHP_EOL;

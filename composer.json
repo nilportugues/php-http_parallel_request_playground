@@ -11,8 +11,9 @@
     ],
     "minimum-stability": "dev",
     "require": {
-      "guzzlehttp/guzzle": "~6.0",
+        "guzzlehttp/guzzle": "~6.0",
         "react/event-loop": "^0.4.1",
-        "clue/buzz-react": "^0.4.1"
+        "clue/buzz-react": "^0.4.1",
+        "clue/block-react": "^1.0"
     }
 }

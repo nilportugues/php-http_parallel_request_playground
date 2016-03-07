@@ -54,10 +54,7 @@ And see the difference in timings between implementations.
 
 ## Experiments: 
 
-- Curl: `withoutCoroutines.php`
-- Guzzle6 with React Loop: `withCoroutines.php`
-
-## Todo: 
-
+- Native Curl
 - Native Curl multi requests.
-- Any other anyone proposes via Pull Request.
+- Guzzle6 with React Loop
+- Buzz with React Loop

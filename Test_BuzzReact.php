@@ -2,27 +2,31 @@
 include './vendor/autoload.php';
 
 use Clue\React\Buzz\Browser;
-use Clue\React\Buzz\Message\Response;
 
 /**
  * @return array
+ * @throws Exception
  */
 function indexAction()
 {
-    // Create a Guzzle client that uses a Guzzle handler that integrates with React event loop
     $loop = React\EventLoop\Factory::create();
     $client = new Browser($loop);
 
-    // Send a request and handle the response asynchronously
-    $url = 'http://localhost:8000';
-    $messages = [];
-    slowHttpRequest($client, $url, $messages);
-    slowHttpRequest($client, $url, $messages);
-    slowHttpRequest($client, $url, $messages);
-    slowHttpRequest($client, $url, $messages);
-    slowHttpRequest($client, $url, $messages);
+    $url = 'http://127.0.0.1:8000/'; //will fail without trailing /...wtf :(
 
-    $loop->run();
+    $promises = [];
+    $promises[] = slowHttpRequest($client, $url);
+    $promises[] = slowHttpRequest($client, $url);
+    $promises[] = slowHttpRequest($client, $url);
+    $promises[] = slowHttpRequest($client, $url);
+    $promises[] = slowHttpRequest($client, $url);
+    $resolvedPromised = Clue\React\Block\awaitAll($promises, $loop);
+
+    /** @var \Clue\React\Buzz\Message\Body $message */
+    $messages = [];
+    foreach($resolvedPromised as $message) {
+        $messages[] = (string) $message->getBody();
+    }
 
     return $messages;
 }
@@ -30,14 +34,13 @@ function indexAction()
 
 /**
  * @param Browser $client
- * @param        $url
- * @param array  $messages
+ * @param string  $url
+ *
+ * @return \React\Promise\PromiseInterface
  */
-function slowHttpRequest(Browser $client, $url, array &$messages)
+function slowHttpRequest(Browser $client, $url)
 {
-    $messages[] = $client->get($url)->then(function (Response $result) {
-        return $result->getBody();
-    });
+    return $client->get($url);
 }
 
 
